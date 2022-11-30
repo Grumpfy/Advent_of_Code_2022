@@ -1,0 +1,16 @@
+---
+Checks:          '*,
+                 -altera-*,
+                 -fuchsia-*,
+                 -google-*,
+                 -zircon-*,
+                 -llvm*,
+                 -readability-redundant-access-specifiers,
+                 -cppcoreguidelines-pro-bounds-array-to-pointer-decay,
+                 -hicpp-no-array-decay'
+WarningsAsErrors: ''
+HeaderFilterRegex: ''
+FormatStyle:     none
+CheckOptions:
+  - key:             misc-non-private-member-variables-in-classes.IgnoreClassesWithAllMemberVariablesBeingPublic
+    value:           '1'

@@ -1,0 +1,28 @@
+BasedOnStyle: Google
+
+ColumnLimit: '100'
+
+SortIncludes: 'true'
+IncludeCategories:
+      # local headers
+      - Regex:           '^"'
+        Priority:        1
+      # aioli headers
+      - Regex:           '^<aioli/'
+        Priority:        2
+      # Qt headers
+      - Regex:           '^<Q'
+        Priority:        4
+      # stl headers
+      - Regex:           '^<([a-z0-9_])+>'
+        Priority:        5
+      # everything else
+      - Regex:           '.*'
+        Priority:        3
+IncludeBlocks: Regroup
+
+StatementMacros: ['Q_OBJECT', 'Q_UNUSED']
+
+AlignAfterOpenBracket: AlwaysBreak
+BinPackArguments: false
+BinPackParameters: false
