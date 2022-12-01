@@ -40,6 +40,59 @@ target_compile_options(
   -Werror
 )
 
+# third parties
+include(FetchContent)
+FetchContent_Declare(
+  fmt
+  GIT_REPOSITORY https://github.com/fmtlib/fmt
+  GIT_TAG 9.1.0)
+FetchContent_MakeAvailable(fmt)
+
+FetchContent_Declare(
+  cppcoro
+  GIT_REPOSITORY https://github.com/lewissbaker/cppcoro
+  GIT_TAG 391215262bd40d68ac6534810164131f5f9eb148)
+FetchContent_GetProperties(cppcoro)
+if(NOT cppcoro_POPULATED)
+    FetchContent_Populate(cppcoro)
+endif()
+add_library(cppcoro INTERFACE)
+target_include_directories(cppcoro SYSTEM INTERFACE "${cppcoro_SOURCE_DIR}/include")
+
+FetchContent_Declare(
+  range_v3
+  GIT_REPOSITORY https://github.com/ericniebler/range-v3
+  GIT_TAG 0.12.0)
+FetchContent_GetProperties(range_v3)
+if(NOT range_v3_POPULATED)
+    FetchContent_Populate(range_v3)
+endif()
+add_library(range_v3 INTERFACE)
+target_include_directories(range_v3 SYSTEM INTERFACE "${range_v3_SOURCE_DIR}/include")
+
+FetchContent_Declare(
+  ctre
+  GIT_REPOSITORY https://github.com/hanickadot/compile-time-regular-expressions
+  GIT_TAG v3.7.1)
+FetchContent_GetProperties(ctre)
+if(NOT ctre_POPULATED)
+    FetchContent_Populate(ctre)
+endif()
+add_library(ctre INTERFACE)
+target_include_directories(ctre SYSTEM INTERFACE "${ctre_SOURCE_DIR}/single-header")
+
+FetchContent_Declare(
+  abseil
+  GIT_REPOSITORY https://github.com/abseil/abseil-cpp
+  GIT_TAG 296abbd35a600785d6297738749336061ecb2221)
+FetchContent_MakeAvailable(abseil)
+add_library(abseil INTERFACE)
+target_link_libraries(abseil INTERFACE absl::flat_hash_map)
+target_include_directories(abseil SYSTEM INTERFACE "${abseil_SOURCE_DIR}")
+
+add_library(project_third_parties INTERFACE)
+target_link_libraries(project_third_parties INTERFACE fmt::fmt cppcoro range_v3 ctre abseil)
+
 # puzzles
 add_executable(00_test 00_test.cpp)
-target_link_libraries(00_test PRIVATE project_options project_warnings)
+target_link_libraries(00_test PRIVATE project_options project_warnings project_third_parties)
