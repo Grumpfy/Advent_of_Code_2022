@@ -85,7 +85,12 @@ FetchContent_Declare(
   abseil
   GIT_REPOSITORY https://github.com/abseil/abseil-cpp
   GIT_TAG 296abbd35a600785d6297738749336061ecb2221)
-FetchContent_MakeAvailable(abseil)
+FetchContent_GetProperties(abseil)
+if(NOT abseil_POPULATED)
+    FetchContent_Populate(abseil)
+	set(ABSL_PROPAGATE_CXX_STD ON)
+	add_subdirectory(${abseil_SOURCE_DIR} ${abseil_BINARY_DIR} EXCLUDE_FROM_ALL)
+endif()
 add_library(abseil INTERFACE)
 target_link_libraries(abseil INTERFACE absl::flat_hash_map)
 target_include_directories(abseil SYSTEM INTERFACE "${abseil_SOURCE_DIR}")
@@ -96,3 +101,15 @@ target_link_libraries(project_third_parties INTERFACE fmt::fmt cppcoro range_v3 
 # puzzles
 add_executable(00_test 00_test.cpp)
 target_link_libraries(00_test PRIVATE project_options project_warnings project_third_parties)
+
+add_executable(01_calorie_counting_1 01_calorie_counting_1.cpp)
+target_link_libraries(01_calorie_counting_1 PRIVATE project_options project_warnings project_third_parties)
+
+add_executable(01_calorie_counting_2 01_calorie_counting_2.cpp)
+target_link_libraries(01_calorie_counting_2 PRIVATE project_options project_warnings project_third_parties)
+
+add_executable(02_rock_paper_scissors_1 02_rock_paper_scissors_1.cpp)
+target_link_libraries(02_rock_paper_scissors_1 PRIVATE project_options project_warnings project_third_parties)
+
+add_executable(02_rock_paper_scissors_2 02_rock_paper_scissors_2.cpp)
+target_link_libraries(02_rock_paper_scissors_2 PRIVATE project_options project_warnings project_third_parties)
