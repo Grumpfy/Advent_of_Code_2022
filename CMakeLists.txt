@@ -5,10 +5,14 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 project(aoc_2022 LANGUAGES CXX C)
 
+option(ENABLE_SANITIZERS "Activate address and UB sanitizers" OFF)
+
 # global compilation flags
 set(CMAKE_EXE_LINKER_FLAGS_DEBUG "${CMAKE_EXE_LINKER_FLAGS_DEBUG} -Xlinker -no_deduplicate")
-add_compile_options(-fsanitize=address,undefined)
-add_link_options(-fsanitize=address,undefined)
+if (ENABLE_SANITIZERS)
+  add_compile_options(-fsanitize=address,undefined)
+  add_link_options(-fsanitize=address,undefined)
+endif()
 
 # project options
 add_library(project_options INTERFACE)
