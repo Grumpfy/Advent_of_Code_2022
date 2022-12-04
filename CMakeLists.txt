@@ -123,3 +123,9 @@ target_link_libraries(03_rucksack_reorganization PRIVATE project_options project
 
 add_executable(03_rucksack_reorganization_2 03_rucksack_reorganization_2.cpp)
 target_link_libraries(03_rucksack_reorganization_2 PRIVATE project_options project_warnings project_third_parties)
+
+add_executable(04_camp_cleanup_1 04_camp_cleanup_1.cpp)
+target_link_libraries(04_camp_cleanup_1 PRIVATE project_options project_warnings project_third_parties)
+
+add_executable(04_camp_cleanup_2 04_camp_cleanup_2.cpp)
+target_link_libraries(04_camp_cleanup_2 PRIVATE project_options project_warnings project_third_parties)
