@@ -129,3 +129,9 @@ target_link_libraries(04_camp_cleanup_1 PRIVATE project_options project_warnings
 
 add_executable(04_camp_cleanup_2 04_camp_cleanup_2.cpp)
 target_link_libraries(04_camp_cleanup_2 PRIVATE project_options project_warnings project_third_parties)
+
+add_executable(05_supply_stacks_1 05_supply_stacks_1.cpp)
+target_link_libraries(05_supply_stacks_1 PRIVATE project_options project_warnings project_third_parties)
+
+add_executable(05_supply_stacks_2 05_supply_stacks_2.cpp)
+target_link_libraries(05_supply_stacks_2 PRIVATE project_options project_warnings project_third_parties)
