@@ -135,3 +135,9 @@ target_link_libraries(05_supply_stacks_1 PRIVATE project_options project_warning
 
 add_executable(05_supply_stacks_2 05_supply_stacks_2.cpp)
 target_link_libraries(05_supply_stacks_2 PRIVATE project_options project_warnings project_third_parties)
+
+add_executable(06_tuning_trouble_1 06_tuning_trouble_1.cpp)
+target_link_libraries(06_tuning_trouble_1 PRIVATE project_options project_warnings project_third_parties)
+
+add_executable(06_tuning_trouble_2 06_tuning_trouble_2.cpp)
+target_link_libraries(06_tuning_trouble_2 PRIVATE project_options project_warnings project_third_parties)
