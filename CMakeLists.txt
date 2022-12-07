@@ -141,3 +141,9 @@ target_link_libraries(06_tuning_trouble_1 PRIVATE project_options project_warnin
 
 add_executable(06_tuning_trouble_2 06_tuning_trouble_2.cpp)
 target_link_libraries(06_tuning_trouble_2 PRIVATE project_options project_warnings project_third_parties)
+
+add_executable(07_no_space_left_1 07_no_space_left_1.cpp)
+target_link_libraries(07_no_space_left_1 PRIVATE project_options project_warnings project_third_parties)
+
+add_executable(07_no_space_left_2 07_no_space_left_2.cpp)
+target_link_libraries(07_no_space_left_2 PRIVATE project_options project_warnings project_third_parties)
