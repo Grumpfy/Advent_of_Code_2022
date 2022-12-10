@@ -99,8 +99,25 @@ add_library(abseil INTERFACE)
 target_link_libraries(abseil INTERFACE absl::flat_hash_map)
 target_include_directories(abseil SYSTEM INTERFACE "${abseil_SOURCE_DIR}")
 
+set(BOOST_ENABLE_CMAKE ON)
+FetchContent_Declare(
+  boostorg
+  GIT_REPOSITORY https://github.com/boostorg/boost.git
+  GIT_TAG "boost-1.80.0"
+)
+FetchContent_GetProperties(boostorg)
+if (NOT boostorg_POPULATED)
+    FetchContent_Populate(boostorg)
+    add_subdirectory(${boostorg_SOURCE_DIR} ${boostorg_BINARY_DIR} EXCLUDE_FROM_ALL)
+endif()
+add_library(boost INTERFACE)
+target_link_libraries(boost INTERFACE Boost::dynamic_bitset)
+target_include_directories(abseil SYSTEM INTERFACE "${boostorg_SOURCE_DIR}/libs/core/include")
+target_include_directories(abseil SYSTEM INTERFACE "${boostorg_SOURCE_DIR}/libs/container_hash/include")
+target_include_directories(abseil SYSTEM INTERFACE "${boostorg_SOURCE_DIR}/libs/dynamic_bitset/include")
+
 add_library(project_third_parties INTERFACE)
-target_link_libraries(project_third_parties INTERFACE fmt::fmt cppcoro range_v3 ctre abseil)
+target_link_libraries(project_third_parties INTERFACE fmt::fmt cppcoro range_v3 ctre abseil boost)
 
 # puzzles
 add_executable(00_test 00_test.cpp)
@@ -147,3 +164,9 @@ target_link_libraries(07_no_space_left_1 PRIVATE project_options project_warning
 
 add_executable(07_no_space_left_2 07_no_space_left_2.cpp)
 target_link_libraries(07_no_space_left_2 PRIVATE project_options project_warnings project_third_parties)
+
+add_executable(08_treetop_1 08_treetop_1.cpp)
+target_link_libraries(08_treetop_1 PRIVATE project_options project_warnings project_third_parties)
+
+add_executable(08_treetop_2 08_treetop_2.cpp)
+target_link_libraries(08_treetop_2 PRIVATE project_options project_warnings project_third_parties)
