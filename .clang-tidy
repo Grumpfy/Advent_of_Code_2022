@@ -6,6 +6,7 @@ Checks:          '*,
                  -zircon-*,
                  -llvm*,
                  -readability-redundant-access-specifiers,
+                 -readability-identifier-length,
                  -cppcoreguidelines-pro-bounds-array-to-pointer-decay,
                  -hicpp-no-array-decay'
 WarningsAsErrors: ''

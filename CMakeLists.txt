@@ -170,3 +170,10 @@ target_link_libraries(08_treetop_1 PRIVATE project_options project_warnings proj
 
 add_executable(08_treetop_2 08_treetop_2.cpp)
 target_link_libraries(08_treetop_2 PRIVATE project_options project_warnings project_third_parties)
+
+add_executable(09_rope_bridge_1 09_rope_bridge_1.cpp)
+target_link_libraries(09_rope_bridge_1 PRIVATE project_options project_warnings project_third_parties)
+
+add_executable(09_rope_bridge_2 09_rope_bridge_2.cpp)
+target_link_libraries(09_rope_bridge_2 PRIVATE project_options project_warnings project_third_parties)
+
