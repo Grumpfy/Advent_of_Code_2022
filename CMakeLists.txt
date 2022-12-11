@@ -177,3 +177,9 @@ target_link_libraries(09_rope_bridge_1 PRIVATE project_options project_warnings 
 add_executable(09_rope_bridge_2 09_rope_bridge_2.cpp)
 target_link_libraries(09_rope_bridge_2 PRIVATE project_options project_warnings project_third_parties)
 
+add_executable(10_cathode_ray_tube_1 10_cathode_ray_tube_1.cpp)
+target_link_libraries(10_cathode_ray_tube_1 PRIVATE project_options project_warnings project_third_parties)
+
+add_executable(10_cathode_ray_tube_2 10_cathode_ray_tube_2.cpp)
+target_link_libraries(10_cathode_ray_tube_2 PRIVATE project_options project_warnings project_third_parties)
+
