@@ -111,10 +111,11 @@ if (NOT boostorg_POPULATED)
     add_subdirectory(${boostorg_SOURCE_DIR} ${boostorg_BINARY_DIR} EXCLUDE_FROM_ALL)
 endif()
 add_library(boost INTERFACE)
-target_link_libraries(boost INTERFACE Boost::dynamic_bitset)
+target_link_libraries(boost INTERFACE Boost::dynamic_bitset Boost::multiprecision)
 target_include_directories(abseil SYSTEM INTERFACE "${boostorg_SOURCE_DIR}/libs/core/include")
 target_include_directories(abseil SYSTEM INTERFACE "${boostorg_SOURCE_DIR}/libs/container_hash/include")
 target_include_directories(abseil SYSTEM INTERFACE "${boostorg_SOURCE_DIR}/libs/dynamic_bitset/include")
+target_include_directories(abseil SYSTEM INTERFACE "${boostorg_SOURCE_DIR}/libs/multiprecision/include")
 
 add_library(project_third_parties INTERFACE)
 target_link_libraries(project_third_parties INTERFACE fmt::fmt cppcoro range_v3 ctre abseil boost)
@@ -182,4 +183,10 @@ target_link_libraries(10_cathode_ray_tube_1 PRIVATE project_options project_warn
 
 add_executable(10_cathode_ray_tube_2 10_cathode_ray_tube_2.cpp)
 target_link_libraries(10_cathode_ray_tube_2 PRIVATE project_options project_warnings project_third_parties)
+
+add_executable(11_monkey_in_the_middle_1 11_monkey_in_the_middle_1.cpp monkey_parser.cpp)
+target_link_libraries(11_monkey_in_the_middle_1 PRIVATE project_options project_warnings project_third_parties)
+
+add_executable(11_monkey_in_the_middle_2 11_monkey_in_the_middle_2.cpp monkey_parser.cpp)
+target_link_libraries(11_monkey_in_the_middle_2 PRIVATE project_options project_warnings project_third_parties)
 
