@@ -197,3 +197,9 @@ target_link_libraries(12_hill_climbing_1 PRIVATE project_options project_warning
 add_executable(12_hill_climbing_2 12_hill_climbing_2.cpp)
 target_link_libraries(12_hill_climbing_2 PRIVATE project_options project_warnings project_third_parties)
 
+add_executable(13_distress_signal_1 13_distress_signal_1.cpp)
+target_link_libraries(13_distress_signal_1 PRIVATE project_options project_warnings project_third_parties)
+
+add_executable(13_distress_signal_2 13_distress_signal_2.cpp)
+target_link_libraries(13_distress_signal_2 PRIVATE project_options project_warnings project_third_parties)
+
