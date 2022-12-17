@@ -203,3 +203,9 @@ target_link_libraries(13_distress_signal_1 PRIVATE project_options project_warni
 add_executable(13_distress_signal_2 13_distress_signal_2.cpp)
 target_link_libraries(13_distress_signal_2 PRIVATE project_options project_warnings project_third_parties)
 
+add_executable(14_regolith_reservoir_1 14_regolith_reservoir_1.cpp)
+target_link_libraries(14_regolith_reservoir_1 PRIVATE project_options project_warnings project_third_parties)
+
+add_executable(14_regolith_reservoir_2 14_regolith_reservoir_2.cpp)
+target_link_libraries(14_regolith_reservoir_2 PRIVATE project_options project_warnings project_third_parties)
+
