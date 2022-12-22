@@ -221,3 +221,6 @@ target_link_libraries(16_proboscidea_volcanium_1 PRIVATE project_options project
 add_executable(16_proboscidea_volcanium_2 16_proboscidea_volcanium_2.cpp)
 target_link_libraries(16_proboscidea_volcanium_2 PRIVATE project_options project_warnings project_third_parties)
 
+add_executable(17_pyroclastic_flow_1 17_pyroclastic_flow_1.cpp)
+target_link_libraries(17_pyroclastic_flow_1 PRIVATE project_options project_warnings project_third_parties)
+
